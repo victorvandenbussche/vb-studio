@@ -261,6 +261,14 @@ ol.steps li::before {
   display: block; width: 100%; height: 260px; object-fit: contain;
   background: #ffffff; border: 1px solid var(--line); border-radius: var(--radius); padding: 16px;
 }
+.gallery img.cover { object-fit: cover; padding: 0; }
+.photo { margin: 0 0 48px; }
+.photo img {
+  display: block; width: 100%; height: auto; max-height: 560px;
+  object-fit: cover; object-position: center 60%;
+  border-radius: var(--radius);
+}
+.photo figcaption { color: var(--muted); font-size: 14px; margin-top: 10px; }
 .gallery figcaption { color: var(--muted); font-size: 14px; margin-top: 8px; }
 
 .inuse {
