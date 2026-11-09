@@ -10,15 +10,16 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/style.css">
+  <script src="/site.js" defer></script>
 </head>
 <body>
   <header class="site-header">
     <div class="wrap">
       <a class="brand" href="/">
         <svg class="logo" viewBox="112 84 196 168" aria-hidden="true"><path class="arc" d="M125 148 Q210 44 295 148" fill="none" stroke-width="16" stroke-linecap="round"/><path class="v" d="M153 175 L210 238 L267 175" fill="none" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        Victor Vanden Bussche
+        <span class="brand-name">Victor Vanden Bussche</span>
       </a>
-      <nav>
+      <nav aria-label="Sections">
         <a href="/#about">About</a>
         <a href="/#path">Path</a>
         <a href="/#projects">Projects</a>
@@ -30,7 +31,6 @@
     <section class="hero project-hero on-dark">
       <div class="wrap">
         <a class="back" href="/#projects">← All projects</a>
-        <p class="eyebrow">Project · Product design</p>
         <h1>Backplate<span>Designing for the individual</span></h1>
         <p class="lead">An individual product design project exploring personalisation through parametric design: a product that adapts to the human body.</p>
         <dl class="facts">
@@ -93,7 +93,7 @@
       </ul>
     </article>
 
-    <div class="next"><a href="/myramp">Next project: MyRamp <span>→</span></a></div>
+    <div class="next"><a href="/myramp">Next project: MyRamp <span aria-hidden="true">→</span></a></div>
   </main>
 
   <footer class="site-footer">
