@@ -667,3 +667,13 @@ section.block.tight { padding-top: 56px; }
   .home-photo .sticker { width: 96px; height: 96px; left: -32px; bottom: 24px; }
   .tiles { grid-template-columns: 1fr; }
 }
+
+/* Home intro: the switch from design to product management */
+.home-text h1 { font-size: clamp(2.8rem, 5.6vw, 4.6rem); margin-bottom: 20px; }
+.home-text .tagline {
+  font-family: "Space Grotesk", sans-serif; font-weight: 700;
+  font-size: clamp(1.4rem, 2.6vw, 2rem); line-height: 1.15; letter-spacing: -0.02em;
+  color: var(--ink); margin: 0 0 18px;
+}
+.home-text .tagline span { color: var(--orange-ink); }
+.home-text .role { font-size: 17px; line-height: 1.6; color: var(--text); max-width: 36rem; margin-bottom: 16px; }
