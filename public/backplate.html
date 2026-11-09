@@ -5,262 +5,105 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Backplate – Designing for the individual · Victor Vanden Bussche</title>
   <meta name="description" content="Backplate: a personalised back support made from a 3D scan of the user's back, using parametric design and 3D printing. An individual product design project by Victor Vanden Bussche.">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --bg: #f7f5f1;
-      --ink: #1b1b1a;
-      --muted: #6b6862;
-      --line: #dedad2;
-      --accent: #b4442b;
-    }
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --bg: #151514;
-        --ink: #ecebe7;
-        --muted: #9d9a93;
-        --line: #2e2d2a;
-        --accent: #e0775c;
-      }
-    }
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      background: var(--bg);
-      color: var(--ink);
-      font-family: Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
-      font-size: 17px;
-      line-height: 1.7;
-      -webkit-font-smoothing: antialiased;
-    }
-    main {
-      max-width: 40rem;
-      margin: 0 auto;
-      padding: 40px 24px 64px;
-    }
-    .back {
-      display: inline-block;
-      color: var(--muted);
-      font-size: 14px;
-      text-decoration: none;
-      margin-bottom: 64px;
-    }
-    .back:hover { color: var(--ink); }
-    .eyebrow {
-      font-size: 13px;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin: 0 0 20px;
-    }
-    h1 {
-      font-family: "Instrument Serif", Georgia, serif;
-      font-weight: 400;
-      font-size: clamp(2.75rem, 8vw, 4.25rem);
-      line-height: 1.02;
-      margin: 0 0 24px;
-    }
-    h1 em { color: var(--accent); }
-    .lead {
-      font-family: "Instrument Serif", Georgia, serif;
-      font-size: clamp(1.3rem, 3.4vw, 1.6rem);
-      line-height: 1.35;
-      margin: 0 0 48px;
-    }
-    .facts {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-      border-top: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
-      padding: 20px 0;
-      margin: 0 0 56px;
-      font-size: 14px;
-    }
-    .facts dt { color: var(--muted); margin-bottom: 2px; }
-    .facts dd { margin: 0; }
-    p { margin: 0 0 22px; }
-    .turn {
-      font-weight: 500;
-      margin: 48px 0 22px;
-    }
-    blockquote {
-      margin: 64px 0;
-      padding: 0 0 0 24px;
-      border-left: 2px solid var(--accent);
-      font-family: "Instrument Serif", Georgia, serif;
-      font-size: clamp(1.6rem, 4.6vw, 2.2rem);
-      line-height: 1.2;
-    }
-    footer {
-      max-width: 40rem;
-      margin: 0 auto;
-      padding: 24px 24px 48px;
-      color: var(--muted);
-      font-size: 14px;
-    }
-    footer a { color: inherit; }
-    @media (max-width: 560px) {
-      .facts { grid-template-columns: 1fr; gap: 10px; }
-    }
-    ul.shows {
-      list-style: none;
-      padding: 0;
-      margin: 0 0 22px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-    }
-    ul.shows li {
-      border: 1px solid var(--line);
-      border-radius: 10px;
-      padding: 16px 18px;
-      font-size: 15px;
-      line-height: 1.5;
-    }
-    ul.shows strong { display: block; font-weight: 500; margin-bottom: 4px; }
-    ul.shows span { color: var(--muted); }
-    .gallery {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-      margin: 0 0 16px;
-    }
-    .gallery figure { margin: 0; }
-    .gallery img {
-      display: block;
-      width: 100%;
-      height: 260px;
-      object-fit: contain;
-      background: #ffffff;
-      border: 1px solid var(--line);
-      border-radius: 10px;
-      padding: 16px;
-    }
-    .gallery figcaption { color: var(--muted); font-size: 14px; margin-top: 8px; }
-    @media (max-width: 560px) { .gallery { grid-template-columns: 1fr; } }
-    .inuse {
-      margin: 40px 0 8px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      background: linear-gradient(135deg, #4a4a4c, #8d8d8f);
-      color: #f4f3ef;
-      border-radius: 14px;
-      overflow: hidden;
-    }
-    .inuse img {
-      display: block;
-      width: 100%;
-      height: 100%;
-      max-height: 520px;
-      object-fit: cover;
-      object-position: center 30%;
-    }
-    .inuse figcaption {
-      padding: 32px 28px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      gap: 12px;
-    }
-    .inuse .tag {
-      font-size: 12px;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      opacity: 0.75;
-    }
-    .inuse strong {
-      font-family: "Instrument Serif", Georgia, serif;
-      font-weight: 400;
-      font-size: 1.9rem;
-      line-height: 1.1;
-    }
-    .inuse ul { margin: 0; padding-left: 1.1em; font-size: 15px; line-height: 1.55; }
-    .inuse li { margin-bottom: 8px; }
-    .inuse li::marker { color: #7fd3ff; }
-    .inuse .note { font-size: 12px; opacity: 0.6; }
-    @media (max-width: 560px) {
-      .inuse { grid-template-columns: 1fr; }
-      .inuse img { max-height: 420px; }
-    }
-    ol.steps { padding-left: 1.2em; margin: 0 0 22px; }
-    ol.steps li { margin-bottom: 6px; }
-    h2 {
-      font-size: 13px;
-      font-weight: 500;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin: 56px 0 16px;
-    }
-    @media (max-width: 560px) { ul.shows { grid-template-columns: 1fr; } }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-  <main>
-    <a class="back" href="/">← Victor Vanden Bussche</a>
-    <p class="eyebrow">Project · Product design</p>
-    <h1>Backplate<br><em>Designing for the individual</em></h1>
-    <p class="lead">An individual product design project exploring personalisation through parametric design: a product that adapts to the human body.</p>
-
-    <dl class="facts">
-      <div><dt>What</dt><dd>Personalised back support for better posture</dd></div>
-      <div><dt>How</dt><dd>3D scan, parametric design in Rhino, 3D printing</dd></div>
-      <div><dt>Role</dt><dd>Individual project, from problem to final product</dd></div>
-    </dl>
-
-    <div class="gallery">
-      <figure>
-        <img src="/images/backplate-front.png" width="336" height="271" alt="Render of the Backplate seen from the front: a dark, curved back support with an organic open-cell pattern.">
-        <figcaption>Front view</figcaption>
-      </figure>
-      <figure>
-        <img src="/images/backplate-angle.png" width="336" height="242" alt="Render of the Backplate from an angle, showing how the open-cell shell curves to follow the shape of a back.">
-        <figcaption>Side angle, showing the curve that follows the back</figcaption>
-      </figure>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="/">
+        <svg class="logo" viewBox="112 84 196 168" aria-hidden="true"><path class="arc" d="M125 148 Q210 44 295 148" fill="none" stroke-width="16" stroke-linecap="round"/><path class="v" d="M153 175 L210 238 L267 175" fill="none" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Victor Vanden Bussche
+      </a>
+      <nav>
+        <a href="/#about">About</a>
+        <a href="/#path">Path</a>
+        <a href="/#projects">Projects</a>
+      </nav>
     </div>
+  </header>
 
-    <h2>The challenge</h2>
-    <p>Poor sitting habits and long hours leaning forward cause discomfort. Backplate is a back support that encourages better posture. The challenge was to design a parametric product that offers a high degree of personalisation: instead of one size for everyone, a product that fits one person.</p>
+  <main>
+    <section class="hero project-hero on-dark">
+      <div class="wrap">
+        <a class="back" href="/#projects">← All projects</a>
+        <p class="eyebrow">Project · Product design</p>
+        <h1>Backplate<span>Designing for the individual</span></h1>
+        <p class="lead">An individual product design project exploring personalisation through parametric design: a product that adapts to the human body.</p>
+        <dl class="facts">
+          <div><dt>What</dt><dd>Personalised back support for better posture</dd></div>
+          <div><dt>How</dt><dd>3D scan, parametric design in Rhino, 3D printing</dd></div>
+          <div><dt>Role</dt><dd>Individual project, from problem to final product</dd></div>
+        </dl>
+      </div>
+    </section>
 
-    <figure class="inuse">
-      <img src="/images/backplate-in-use.jpg" width="532" height="924" alt="Concept visual: a student wearing a backpack, with the dark open-cell Backplate shown inside the bag, resting against his back.">
-      <figcaption>
-        <span class="tag">In use</span>
-        <strong>Built into a school bag</strong>
-        <ul>
-          <li>Heavy bags pull students into a slouch.</li>
-          <li>The Backplate sits inside the bag, against the back, and spreads the load.</li>
-          <li>Its shape comes from a scan of the wearer, so the support fits that body.</li>
-        </ul>
-        <span class="note">Concept visual</span>
-      </figcaption>
-    </figure>
+    <article class="article">
+      <div class="gallery">
+        <figure>
+          <img src="/images/backplate-front.png" width="336" height="271" alt="Render of the Backplate seen from the front: a dark, curved back support with an organic open-cell pattern.">
+          <figcaption>Front view</figcaption>
+        </figure>
+        <figure>
+          <img src="/images/backplate-angle.png" width="336" height="242" alt="Render of the Backplate from an angle, showing how the open-cell shell curves to follow the shape of a back.">
+          <figcaption>Side angle, showing the curve that follows the back</figcaption>
+        </figure>
+      </div>
 
-    <h2>The process</h2>
-    <ol class="steps">
-      <li>A 3D scan of the user's back.</li>
-      <li>The scan becomes a digital model in Rhino.</li>
-      <li>Parametric design adapts the backplate's shape to that body.</li>
-      <li>The final piece is made by 3D printing.</li>
-    </ol>
+      <h2>The challenge</h2>
+      <p>Poor sitting habits and long hours leaning forward cause discomfort. Backplate is a back support that encourages better posture. The challenge was to design a parametric product that offers a high degree of personalisation: instead of one size for everyone, a product that fits one person.</p>
 
-    <blockquote>Products should adapt to people, rather than expecting people to adapt to products.</blockquote>
+      <figure class="inuse">
+        <img src="/images/backplate-in-use.jpg" width="532" height="924" alt="Concept visual: a student wearing a backpack, with the dark open-cell Backplate shown inside the bag, resting against his back.">
+        <figcaption>
+          <span class="label">In use</span>
+          <strong>Built into a school bag</strong>
+          <ul>
+            <li>Heavy bags pull students into a slouch.</li>
+            <li>The Backplate sits inside the bag, against the back, and spreads the load.</li>
+            <li>Its shape comes from a scan of the wearer, so the support fits that body.</li>
+          </ul>
+          <span class="note">Concept visual</span>
+        </figcaption>
+      </figure>
 
-    <h2>My role</h2>
-    <p>I took ownership of the whole design process: understanding the problem, developing the concept, working out the technical workflow and creating the final product. Working alone meant making my own design decisions and turning an initial idea into something tangible.</p>
-    <p>What interests me most is the link between technology and personalisation: how digital tools can move product design beyond standard solutions, towards products that respond to individual needs.</p>
+      <h2>The process</h2>
+      <ol class="steps">
+        <li>A 3D scan of the user's back.</li>
+        <li>The scan becomes a digital model in Rhino.</li>
+        <li>Parametric design adapts the backplate's shape to that body.</li>
+        <li>The final piece is made by 3D printing.</li>
+      </ol>
 
-    <h2>What this project shows</h2>
-    <ul class="shows">
-      <li><strong>Ownership</strong><span>Taking a project from first problem to tangible result on my own.</span></li>
-      <li><strong>Creative problem-solving</strong><span>Looking past standard solutions to what one person actually needs.</span></li>
-      <li><strong>Technical understanding</strong><span>How 3D scanning, parametric modelling and 3D printing work together.</span></li>
-      <li><strong>User-oriented thinking</strong><span>Designing around the person who will use the product.</span></li>
-    </ul>
+      <blockquote>Products should adapt to people, rather than expecting people to adapt to products.</blockquote>
+
+      <h2>My role</h2>
+      <p>I took ownership of the whole design process: understanding the problem, developing the concept, working out the technical workflow and creating the final product. Working alone meant making my own design decisions and turning an initial idea into something tangible.</p>
+      <p>What interests me most is the link between technology and personalisation: how digital tools can move product design beyond standard solutions, towards products that respond to individual needs.</p>
+
+      <h2>What this project shows</h2>
+      <ul class="shows">
+        <li><strong>Ownership</strong><span>Taking a project from first problem to tangible result on my own.</span></li>
+        <li><strong>Creative problem-solving</strong><span>Looking past standard solutions to what one person actually needs.</span></li>
+        <li><strong>Technical understanding</strong><span>How 3D scanning, parametric modelling and 3D printing work together.</span></li>
+        <li><strong>User-oriented thinking</strong><span>Designing around the person who will use the product.</span></li>
+      </ul>
+    </article>
+
+    <div class="next"><a href="/myramp">Next project: MyRamp <span>→</span></a></div>
   </main>
-  <footer><a href="/">← Back to home</a> · © 2026 Victor Vanden Bussche</footer>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <a class="brand" href="/">
+        <svg class="logo" viewBox="112 84 196 168" aria-hidden="true"><path class="arc" d="M125 148 Q210 44 295 148" fill="none" stroke-width="16" stroke-linecap="round"/><path class="v" d="M153 175 L210 238 L267 175" fill="none" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Victor Vanden Bussche
+      </a>
+      <span>© 2026 · The bridge from product to business</span>
+    </div>
+  </footer>
 </body>
 </html>
