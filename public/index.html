@@ -96,6 +96,20 @@
     }
     .what strong { font-weight: 500; display: block; }
     .what span { color: var(--muted); }
+    a.project {
+      display: block;
+      color: inherit;
+      text-decoration: none;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 20px 22px;
+      margin: 0 0 20px;
+      transition: border-color .2s;
+    }
+    a.project:hover { border-color: var(--accent); }
+    a.project strong { display: block; font-weight: 500; margin-bottom: 4px; }
+    a.project span { display: block; color: var(--muted); }
+    a.project .more { color: var(--accent); margin-top: 10px; font-size: 15px; }
     footer {
       max-width: 44rem;
       margin: 0 auto;
@@ -140,6 +154,17 @@
           <span class="what"><strong>Industrial Product Development</strong><span>From idea to functional, appealing product</span></span>
         </li>
       </ol>
+    </section>
+
+    <section>
+      <h2>Projects</h2>
+      <div>
+        <a class="project" href="/myramp.html">
+          <strong>MyRamp – Designing for independence</strong>
+          <span>A mobile, lightweight ramp for active wheelchair users, and the project that pointed me towards Product Management.</span>
+          <span class="more">Read the story →</span>
+        </a>
+      </div>
     </section>
 
     <section>
