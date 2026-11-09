@@ -521,3 +521,58 @@ ul.shows span { color: var(--text); }
 }
 
 .article p strong { color: var(--ink); font-weight: 600; }
+
+/* ---------- Portfolio-first home: work features and the compact background ---------- */
+/* Work: one big feature per project, alternating sides */
+.work { display: grid; gap: 40px; }
+.feature {
+  display: grid; grid-template-columns: 7fr 5fr; gap: 0;
+  background: #ffffff; border-radius: var(--radius); overflow: hidden;
+  text-decoration: none; color: inherit;
+  transition: transform .25s var(--ease), box-shadow .25s var(--ease);
+}
+.feature:hover { transform: translateY(-4px); box-shadow: 0 18px 40px rgba(21, 35, 59, .12); }
+.feature:nth-child(even) { grid-template-columns: 5fr 7fr; }
+.feature:nth-child(even) .f-media { order: 2; }
+.f-media { min-height: 420px; position: relative; background: #ececec; overflow: hidden; }
+.f-media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform .5s var(--ease); }
+.f-media.contain img { object-fit: contain; padding: 40px; }
+.feature:hover .f-media img { transform: scale(1.03); }
+.f-body { padding: 40px; display: flex; flex-direction: column; justify-content: center; gap: 6px; }
+.f-body h3 { font-size: clamp(1.7rem, 2.6vw, 2.2rem); line-height: 1.05; letter-spacing: -0.03em; margin: 6px 0 4px; }
+.f-body .sub { color: var(--orange-ink); font-weight: 600; margin: 0 0 18px; }
+.f-body .sub .meta { color: var(--muted); font-weight: 500; }
+.pab { list-style: none; padding: 0; margin: 0 0 22px; display: grid; gap: 12px; }
+.pab li { display: grid; grid-template-columns: 6.5rem 1fr; gap: 12px; font-size: 16px; line-height: 1.5; }
+.pab b { font-family: "Space Grotesk", sans-serif; color: var(--ink); }
+.f-body .more { color: var(--orange-ink); font-weight: 600; }
+.f-body .more span { display: inline-block; transition: transform .2s var(--ease); }
+.feature:hover .f-body .more span { transform: translateX(4px); }
+
+/* Background: the CV in one glance */
+.bg-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.bg-grid > div { background: var(--bg-soft); border-radius: var(--radius); padding: 32px; }
+.bg-grid h3 { font-size: 20px; margin: 0 0 16px; }
+.lines { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; }
+.lines li { display: grid; grid-template-columns: 6.5rem 1fr; gap: 12px; font-size: 16px; line-height: 1.45; }
+.lines .y { font-family: "Space Grotesk", sans-serif; font-weight: 700; color: var(--orange-ink); }
+.lines strong { color: var(--ink); font-weight: 600; display: block; }
+.lines small { color: var(--muted); font-size: 14px; }
+.highlight { margin-top: 16px; background: var(--navy); color: var(--on-navy); border-radius: var(--radius); padding: 28px 32px; display: grid; grid-template-columns: auto 1fr; gap: 24px; align-items: center; }
+.highlight b { font-family: "Space Grotesk", sans-serif; color: var(--orange); font-size: 15px; white-space: nowrap; }
+.highlight p { margin: 0; color: #ffffff; font-size: 18px; line-height: 1.5; }
+.tools { margin: 24px 0 0; font-size: 16px; color: var(--text); }
+.tools strong { color: var(--ink); }
+.tools a { font-weight: 600; text-decoration: none; margin-left: 6px; }
+
+@media (max-width: 820px) {
+  .feature, .feature:nth-child(even) { grid-template-columns: 1fr; }
+  .feature:nth-child(even) .f-media { order: 0; }
+  .f-media { min-height: 280px; }
+  .f-body { padding: 28px; }
+  .bg-grid, .highlight { grid-template-columns: 1fr; }
+  .highlight { gap: 8px; }
+}
+@media (max-width: 560px) {
+  .pab li, .lines li { grid-template-columns: 1fr; gap: 2px; }
+}
