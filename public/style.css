@@ -519,3 +519,5 @@ ul.shows span { color: var(--text); }
   .projects .card:nth-child(2) { margin-top: 0; }
   .projects .card:first-child .media { height: 280px; }
 }
+
+.article p strong { color: var(--ink); font-weight: 600; }
