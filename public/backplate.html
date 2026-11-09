@@ -122,6 +122,25 @@
     }
     ul.shows strong { display: block; font-weight: 500; margin-bottom: 4px; }
     ul.shows span { color: var(--muted); }
+    .gallery {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin: 0 0 16px;
+    }
+    .gallery figure { margin: 0; }
+    .gallery img {
+      display: block;
+      width: 100%;
+      height: 260px;
+      object-fit: contain;
+      background: #ffffff;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 16px;
+    }
+    .gallery figcaption { color: var(--muted); font-size: 14px; margin-top: 8px; }
+    @media (max-width: 560px) { .gallery { grid-template-columns: 1fr; } }
     ol.steps { padding-left: 1.2em; margin: 0 0 22px; }
     ol.steps li { margin-bottom: 6px; }
     h2 {
@@ -147,6 +166,17 @@
       <div><dt>How</dt><dd>3D scan, parametric design in Rhino, 3D printing</dd></div>
       <div><dt>Role</dt><dd>Individual project, from problem to final product</dd></div>
     </dl>
+
+    <div class="gallery">
+      <figure>
+        <img src="/images/backplate-front.png" width="336" height="271" alt="Render of the Backplate seen from the front: a dark, curved back support with an organic open-cell pattern.">
+        <figcaption>Front view</figcaption>
+      </figure>
+      <figure>
+        <img src="/images/backplate-angle.png" width="336" height="242" alt="Render of the Backplate from an angle, showing how the open-cell shell curves to follow the shape of a back.">
+        <figcaption>Side angle, showing the curve that follows the back</figcaption>
+      </figure>
+    </div>
 
     <h2>The challenge</h2>
     <p>Poor sitting habits and long hours leaning forward cause discomfort. Backplate is a back support that encourages better posture. The challenge was to design a parametric product that offers a high degree of personalisation: instead of one size for everyone, a product that fits one person.</p>
