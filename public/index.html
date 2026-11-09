@@ -21,8 +21,9 @@
       </a>
       <nav aria-label="Sections">
         <a href="#about">About</a>
-        <a href="#experience">Experience</a>
+        <a href="#experience" class="hide-sm">Experience</a>
         <a href="#projects">Projects</a>
+        <a href="#life">Life</a>
         <a href="#contact">Contact</a>
       </nav>
     </div>
@@ -32,11 +33,12 @@
     <section class="hero on-dark">
       <div class="wrap">
         <div>
+          <p class="hi">Hi, I'm</p>
           <h1>Victor Vanden Bussche</h1>
-          <p class="role">Industrial product designer, studying Product Management &amp; UX Design. <span>Open to an internship or apprenticeship.</span></p>
+          <p class="role">23, industrial product designer, now studying Product Management &amp; UX Design in Paris and Milan. <span>Open to an internship or apprenticeship.</span></p>
           <p class="lead">I want to be the link between design and the client: <strong>the person who understands what makes a design special, and turns that story into value.</strong></p>
           <a class="btn" href="#projects">See my projects</a>
-          <a class="btn ghost" href="#contact">Contact me</a>
+          <a class="btn ghost" href="#contact">Say hi</a>
         </div>
         <div class="hero-mark">
           <svg class="logo" viewBox="112 84 196 168" role="img" aria-label="My logo: a navy arc over an orange V"><path class="arc" d="M125 148 Q210 44 295 148" fill="none" stroke-width="16" stroke-linecap="round"/><path class="v" d="M153 175 L210 238 L267 175" fill="none" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -46,10 +48,23 @@
       </div>
     </section>
 
+    <div class="ticker" aria-hidden="true">
+      <div class="ticker-track">
+        <span>Product design</span><span>UX</span><span>Prototyping</span><span>Business development</span><span>Tennis</span><span>Rugby</span><span>Cooking</span><span>Travelling</span><span>Golf</span>
+        <span>Product design</span><span>UX</span><span>Prototyping</span><span>Business development</span><span>Tennis</span><span>Rugby</span><span>Cooking</span><span>Travelling</span><span>Golf</span>
+      </div>
+    </div>
+
     <section class="block" id="about">
       <div class="wrap">
         <div class="about">
           <figure class="about-photo">
+            <svg class="sticker" viewBox="0 0 120 120" aria-hidden="true">
+              <defs><path id="ring" d="M60 60 m-44 0 a44 44 0 1 1 88 0 a44 44 0 1 1 -88 0"/></defs>
+              <circle cx="60" cy="60" r="58" class="sticker-bg"/>
+              <g class="sticker-ring"><text class="sticker-text"><textPath href="#ring">open to internships · open to internships ·</textPath></text></g>
+              <path class="sticker-v" d="M46 56 L60 72 L74 56" fill="none" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
             <img src="/images/victor-portrait.jpg" width="700" height="840" alt="Black-and-white portrait of Victor Vanden Bussche in a suit jacket, arms crossed, smiling.">
           </figure>
           <div class="about-text">
@@ -67,7 +82,7 @@
     <section class="block soft" id="experience">
       <div class="wrap">
         <div class="section-head">
-          <h2>Experience</h2>
+          <h2>Where I've worked</h2>
           <p>Where design met business: product design, CAD and business development.</p>
         </div>
         <ol class="timeline">
@@ -122,7 +137,7 @@
     <section class="block" id="education">
       <div class="wrap">
         <div class="section-head">
-          <h2>Education</h2>
+          <h2>Where I've studied</h2>
           <p>Engineering, design, then business, in Belgium, Sweden, Italy and France.</p>
         </div>
         <ol class="path">
@@ -163,7 +178,7 @@
     <section class="block soft" id="projects">
       <div class="wrap">
         <div class="section-head">
-          <h2>Projects</h2>
+          <h2>Things I've made</h2>
           <p>Two products I designed on my own. Each one taught me something about the people behind a product, and the value it has to create.</p>
         </div>
         <div class="projects">
@@ -192,8 +207,8 @@
     <section class="block" id="skills">
       <div class="wrap">
         <div class="section-head">
-          <h2>Skills &amp; languages</h2>
-          <p>What I bring to a product team.</p>
+          <h2>What I'm good at</h2>
+          <p>Skills and languages I bring to a product team.</p>
         </div>
         <div class="skills">
           <div>
@@ -220,6 +235,28 @@
               <li><span>German</span><em>Beginner</em></li>
               <li><span>Italian</span><em>Beginner</em></li>
             </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="block soft" id="life">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Off the clock</h2>
+          <p>What I do when I'm not designing products.</p>
+        </div>
+        <div class="life">
+          <div class="life-sport">
+            <ul class="big-words"><li>Tennis</li><li>Rugby</li><li>Golf</li></ul>
+          </div>
+          <div class="life-taste">
+            <ul class="big-words"><li>Cooking</li><li>Travelling</li></ul>
+          </div>
+          <div class="life-give">
+            <h3>Giving back</h3>
+            <p><strong>Rotaract Aalter, 2021 – 2025.</strong> A social club that supports charities around Aalter by organising events and donating the revenue.</p>
+            <p><strong>Hoedspruit, South Africa, 2024.</strong> Volunteer for an animal conservation project.</p>
           </div>
         </div>
       </div>

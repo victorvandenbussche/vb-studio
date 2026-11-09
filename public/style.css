@@ -422,3 +422,84 @@ ul.shows span { color: var(--text); }
   .inuse img { max-height: 420px; }
   .site-footer .wrap { flex-direction: column; align-items: flex-start; }
 }
+
+/* ---------- Younger, livelier layer ---------- */
+:root { --radius: 22px; }
+
+/* Hero: a friendly hello, bigger name */
+.hero { padding: 96px 0 112px; }
+.hero .hi {
+  font-family: "Space Grotesk", sans-serif; font-weight: 600;
+  color: var(--orange); font-size: clamp(1.4rem, 3vw, 2rem); margin: 0 0 4px;
+}
+.hero h1 { font-size: clamp(3rem, 6.4vw, 5.2rem); line-height: .95; letter-spacing: -0.035em; margin-bottom: 24px; }
+.hero-mark .logo { overflow: visible; }
+.hero-mark.ready.drawn .logo .v { animation: draw .7s var(--ease) .75s forwards, bob 3.2s ease-in-out 2s infinite; }
+@keyframes bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(8px); } }
+.hero-mark .logo .v { transform-box: fill-box; }
+.hero-mark .logo { transition: transform .3s var(--ease); }
+
+/* Ticker: what I'm into, on a field of orange */
+.ticker { background: var(--orange); color: var(--navy); overflow: hidden; padding: 18px 0; }
+.ticker-track { display: flex; width: max-content; animation: ticker 32s linear infinite; }
+.ticker span {
+  font-family: "Space Grotesk", sans-serif; font-weight: 700;
+  font-size: clamp(1.2rem, 2.4vw, 1.6rem); white-space: nowrap; padding: 0 22px;
+}
+.ticker span::after { content: ""; display: inline-block; width: 10px; height: 10px; margin-left: 44px; border-radius: 50%; background: var(--navy); vertical-align: middle; }
+@keyframes ticker { to { transform: translateX(-50%); } }
+
+/* Sticker on the portrait */
+.about-photo .sticker {
+  position: absolute; z-index: 2; width: 128px; height: 128px;
+  right: -36px; top: -32px;
+}
+.sticker-bg { fill: var(--navy); }
+.sticker-text { fill: #ffffff; font: 600 11.5px/1 "Space Grotesk", sans-serif; letter-spacing: .06em; }
+.sticker-v { stroke: var(--orange); }
+.sticker-ring { transform-box: view-box; transform-origin: 60px 60px; animation: spin 18s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+.about-photo img { transition: transform .4s var(--ease); }
+.about-photo:hover img { transform: rotate(-1.5deg) scale(1.01); }
+
+/* Cards feel playful */
+.card:hover { transform: translateY(-6px) rotate(-.6deg); }
+.projects .card:nth-child(2):hover { transform: translateY(-6px) rotate(.6deg); }
+.chips li { transition: transform .15s var(--ease), background-color .15s var(--ease); }
+.chips li:hover { transform: translateY(-2px) rotate(-2deg); background: var(--orange-btn); }
+
+/* Off the clock */
+.life { display: grid; grid-template-columns: 1fr 1fr 1.3fr; gap: 16px; }
+.life > div { border-radius: var(--radius); padding: 32px; }
+.life h3 { font-size: 15px; font-weight: 600; letter-spacing: 0; margin: 0 0 18px; }
+.life-sport { background: var(--navy); color: #fff; }
+.life-sport h3 { color: var(--orange); }
+.life-taste { background: var(--orange); }
+.life-taste h3 { color: var(--navy); }
+.life-give { background: #ffffff; }
+.life-give h3 { color: var(--orange-ink); }
+.life-give p { margin: 0 0 14px; font-size: 16px; }
+.life-give strong { color: var(--ink); }
+.big-words { list-style: none; padding: 0; margin: 0; }
+.big-words li {
+  font-family: "Space Grotesk", sans-serif; font-weight: 700;
+  font-size: clamp(2rem, 4vw, 3rem); line-height: 1.05; letter-spacing: -0.03em;
+  transition: transform .2s var(--ease);
+}
+.life-sport .big-words li { color: #ffffff; }
+.life-taste .big-words li { color: var(--navy); }
+.big-words li:hover { transform: translateX(8px); }
+
+
+@media (prefers-reduced-motion: reduce) {
+  .ticker-track, .sticker-ring, .hero-mark.ready.drawn .logo .v { animation: none !important; }
+  .ticker-track { flex-wrap: wrap; width: auto; }
+}
+@media (max-width: 820px) {
+  .life { grid-template-columns: 1fr; }
+  .about-photo .sticker { width: 104px; height: 104px; right: -12px; top: -28px; }
+}
+@media (max-width: 560px) {
+  .hide-sm { display: none; }
+  .ticker { padding: 14px 0; }
+}
