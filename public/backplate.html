@@ -141,6 +141,50 @@
     }
     .gallery figcaption { color: var(--muted); font-size: 14px; margin-top: 8px; }
     @media (max-width: 560px) { .gallery { grid-template-columns: 1fr; } }
+    .inuse {
+      margin: 40px 0 8px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      background: linear-gradient(135deg, #4a4a4c, #8d8d8f);
+      color: #f4f3ef;
+      border-radius: 14px;
+      overflow: hidden;
+    }
+    .inuse img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      max-height: 520px;
+      object-fit: cover;
+      object-position: center 30%;
+    }
+    .inuse figcaption {
+      padding: 32px 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 12px;
+    }
+    .inuse .tag {
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      opacity: 0.75;
+    }
+    .inuse strong {
+      font-family: "Instrument Serif", Georgia, serif;
+      font-weight: 400;
+      font-size: 1.9rem;
+      line-height: 1.1;
+    }
+    .inuse ul { margin: 0; padding-left: 1.1em; font-size: 15px; line-height: 1.55; }
+    .inuse li { margin-bottom: 8px; }
+    .inuse li::marker { color: #7fd3ff; }
+    .inuse .note { font-size: 12px; opacity: 0.6; }
+    @media (max-width: 560px) {
+      .inuse { grid-template-columns: 1fr; }
+      .inuse img { max-height: 420px; }
+    }
     ol.steps { padding-left: 1.2em; margin: 0 0 22px; }
     ol.steps li { margin-bottom: 6px; }
     h2 {
@@ -180,6 +224,20 @@
 
     <h2>The challenge</h2>
     <p>Poor sitting habits and long hours leaning forward cause discomfort. Backplate is a back support that encourages better posture. The challenge was to design a parametric product that offers a high degree of personalisation: instead of one size for everyone, a product that fits one person.</p>
+
+    <figure class="inuse">
+      <img src="/images/backplate-in-use.jpg" width="532" height="924" alt="Concept visual: a student wearing a backpack, with the dark open-cell Backplate shown inside the bag, resting against his back.">
+      <figcaption>
+        <span class="tag">In use</span>
+        <strong>Built into a school bag</strong>
+        <ul>
+          <li>Heavy bags pull students into a slouch.</li>
+          <li>The Backplate sits inside the bag, against the back, and spreads the load.</li>
+          <li>Its shape comes from a scan of the wearer, so the support fits that body.</li>
+        </ul>
+        <span class="note">Concept visual</span>
+      </figcaption>
+    </figure>
 
     <h2>The process</h2>
     <ol class="steps">
