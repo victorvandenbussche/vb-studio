@@ -14,7 +14,7 @@
 
   // Entrances: the parts of each section rise in, one after the other.
   var groups = [
-    '.home-text > *, .home-photo',
+    '.side-design > *, .split-photo, .side-manage > *, .split-intro > *',
     '.page-head .wrap > *',
     '.project-hero .back, .project-hero h1, .project-hero .lead, .facts > div'
   ];
