@@ -17,7 +17,7 @@
     '.hero h1, .hero .role, .hero .lead, .hero .btn',
     '.project-hero .back, .project-hero h1, .project-hero .lead, .facts > div'
   ];
-  var perSection = '.section-head > *, .about-photo, .about-text > *, .timeline > li, .path > li, .card, .skills > div, .life > div, .band .words > *, .band figure, .contact > div > *, .contact-links .btn, .article > *, .next';
+  var perSection = '.section-head > *, .about-photo, .about-text > *, .timeline > li, .path > li, .card, .skills > div, .band .words > *, .band figure, .contact > div > *, .contact-links .btn, .article > *, .next';
 
   var items = [];
   groups.forEach(function (sel) {

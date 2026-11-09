@@ -468,35 +468,12 @@ ul.shows span { color: var(--text); }
 .chips li { transition: transform .15s var(--ease), background-color .15s var(--ease); }
 .chips li:hover { transform: translateY(-2px) rotate(-2deg); background: var(--orange-btn); }
 
-/* Off the clock */
-.life { display: grid; grid-template-columns: 1fr 1fr 1.3fr; gap: 16px; }
-.life > div { border-radius: var(--radius); padding: 32px; }
-.life h3 { font-size: 15px; font-weight: 600; letter-spacing: 0; margin: 0 0 18px; }
-.life-sport { background: var(--navy); color: #fff; }
-.life-sport h3 { color: var(--orange); }
-.life-taste { background: var(--orange); }
-.life-taste h3 { color: var(--navy); }
-.life-give { background: #ffffff; }
-.life-give h3 { color: var(--orange-ink); }
-.life-give p { margin: 0 0 14px; font-size: 16px; }
-.life-give strong { color: var(--ink); }
-.big-words { list-style: none; padding: 0; margin: 0; }
-.big-words li {
-  font-family: "Space Grotesk", sans-serif; font-weight: 700;
-  font-size: clamp(2rem, 4vw, 3rem); line-height: 1.05; letter-spacing: -0.03em;
-  transition: transform .2s var(--ease);
-}
-.life-sport .big-words li { color: #ffffff; }
-.life-taste .big-words li { color: var(--navy); }
-.big-words li:hover { transform: translateX(8px); }
-
 
 @media (prefers-reduced-motion: reduce) {
   .ticker-track, .sticker-ring, .hero-mark.ready.drawn .logo .v { animation: none !important; }
   .ticker-track { flex-wrap: wrap; width: auto; }
 }
 @media (max-width: 820px) {
-  .life { grid-template-columns: 1fr; }
   .about-photo .sticker { width: 104px; height: 104px; right: -12px; top: -28px; }
 }
 @media (max-width: 560px) {
