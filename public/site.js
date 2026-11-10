@@ -2,11 +2,30 @@
 (function () {
   var els = document.querySelectorAll('main p, main li, main dd, main figcaption, main blockquote, footer p');
   Array.prototype.forEach.call(els, function (el) {
+    if (el.closest('.ab-toolkit')) return;
     var walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT), node, last = null;
     while ((node = walker.nextNode())) { if (node.nodeValue.trim()) last = node; }
     if (!last) return;
     var t = last.nodeValue, end = t.replace(/\s+$/, '').length, i = t.lastIndexOf(' ', end - 1);
     if (i > 0 && t.slice(0, i).trim()) last.nodeValue = t.slice(0, i) + ' ' + t.slice(i + 1);
+  });
+})();
+
+// Tool lists ("Figma · Miro"): each tool stays whole, and the dot stays at the end of a line, never the start.
+(function () {
+  var lists = document.querySelectorAll('.ab-toolkit p:not(.ab-kicker)');
+  Array.prototype.forEach.call(lists, function (p) {
+    if (p.children.length) return;
+    var items = p.textContent.split(' · ');
+    if (items.length < 2) return;
+    p.textContent = '';
+    items.forEach(function (item, i) {
+      var span = document.createElement('span');
+      span.className = 'tool';
+      span.textContent = item + (i < items.length - 1 ? ' ·' : '');
+      p.appendChild(span);
+      if (i < items.length - 1) p.appendChild(document.createTextNode(' '));
+    });
   });
 })();
 

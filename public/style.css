@@ -861,7 +861,9 @@ body.home .article blockquote { background: #ffffff; }
 .ab-story.ab-first { padding-top: 64px; }
 .ab-story.ab-first .ab-story-grid { align-items: start; }
 .ab-story.ab-first h1 { font-size: clamp(2.6rem, 5.4vw, 4.4rem); line-height: 1; letter-spacing: -0.04em; }
-.ab-toolkit { grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); }
+.ab-toolkit { grid-template-columns: repeat(auto-fit, minmax(min(190px, 100%), 1fr)); grid-auto-rows: 1fr; }
+.ab-toolkit > div { min-width: 0; }
+.ab-toolkit .tool { display: inline-block; max-width: 100%; }
 
 /* ---------- Contact form ---------- */
 .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: start; }
