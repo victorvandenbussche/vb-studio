@@ -827,3 +827,25 @@ body.home .tile-media.render { background: #ececec; }
   .ab-cta h2 { font-size: 1.5rem; }
   .ab-cta h2 br { display: none; }
 }
+
+/* ---------- One look for every page ---------- */
+.page-hero { padding: 56px 0 40px; }
+.page-hero .ab-lead { margin-bottom: 0; }
+.contact-hero { padding-bottom: 120px; }
+.contact-hero .contact-links { margin-top: 32px; flex-direction: row; flex-wrap: wrap; }
+.work-list { padding: 24px 0 96px; }
+body.home .feature { background: #ffffff; }
+
+/* Project pages on the same cream ground */
+.project-hero { background: transparent !important; background-image: none !important; padding: 48px 0 56px; }
+body.home .facts > div { background: #ffffff; }
+body.home ol.steps li { background: #ffffff; }
+body.home .gallery img { background: #ececec; }
+body.home .article blockquote { background: #ffffff; }
+.next { margin-bottom: 72px; }
+
+/* LinkedIn always in the menu, also on phones */
+@media (max-width: 400px) {
+  .site-header nav { gap: 14px; }
+  .site-header nav a { font-size: 14px; }
+}
