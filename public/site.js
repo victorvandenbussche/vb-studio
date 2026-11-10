@@ -78,6 +78,76 @@
   window.addEventListener('scroll', function () { if (!ticking) { ticking = true; requestAnimationFrame(drift); } }, { passive: true });
 })();
 
+// Footer game: the logo becomes a bridge. Carry the V from product to market.
+(function () {
+  var mark = document.querySelector('.footer-mark');
+  if (!mark || !mark.querySelector('.logo')) return;
+  var title = mark.querySelector('.mark-title');
+  var titleText = title ? title.textContent : '';
+  var ns = 'http://www.w3.org/2000/svg';
+  var d = 'M60 230 Q500 -50 940 230';
+
+  var stage = document.createElement('div');
+  stage.className = 'bridge';
+  stage.innerHTML =
+    '<svg class="bridge-svg" viewBox="0 -60 1000 320" aria-hidden="true" focusable="false">' +
+      '<path class="bridge-arc" d="' + d + '"/>' +
+      '<path class="bridge-trail" d="' + d + '"/>' +
+      '<g class="bridge-v"><path d="M-34 -16 L0 22 L34 -16"/></g>' +
+    '</svg>' +
+    '<span class="bridge-end bridge-from">Product</span>' +
+    '<span class="bridge-end bridge-to">Market</span>' +
+    '<p class="bridge-hint" aria-hidden="true">Drag the V across the bridge</p>' +
+    '<input class="bridge-range" type="range" min="0" max="100" value="6" aria-label="Carry the V from product to market">';
+  mark.querySelector('.logo').replaceWith(stage);
+
+  var cta = document.createElement('a');
+  cta.className = 'btn bridge-cta';
+  cta.href = '/contact';
+  cta.textContent = "Let's talk";
+  if (title) title.after(cta);
+
+  var arc = stage.querySelector('.bridge-arc');
+  var trail = stage.querySelector('.bridge-trail');
+  var v = stage.querySelector('.bridge-v');
+  var range = stage.querySelector('.bridge-range');
+  var len = arc.getTotalLength();
+  trail.style.strokeDasharray = len;
+  var moved = false, arrived = false;
+
+  function place(t) {
+    var p = arc.getPointAtLength(len * t);
+    var a = arc.getPointAtLength(Math.max(0, len * t - 1)), b = arc.getPointAtLength(Math.min(len, len * t + 1));
+    var deg = Math.atan2(b.y - a.y, b.x - a.x) * 180 / Math.PI;
+    v.setAttribute('transform', 'translate(' + p.x.toFixed(1) + ' ' + (p.y - 40).toFixed(1) + ') rotate(' + deg.toFixed(1) + ')');
+    trail.style.strokeDashoffset = (len * (1 - t)).toFixed(1);
+    var done = t >= 0.97;
+    if (done !== arrived) {
+      arrived = done;
+      stage.classList.toggle('arrived', done);
+      mark.classList.toggle('bridge-done', done);
+      if (title) title.textContent = done ? 'Made it to market.' : titleText;
+    }
+  }
+  function set(val) {
+    if (!moved && Math.abs(val - 6) > 2) { moved = true; stage.classList.add('moved'); }
+    place(val / 100);
+  }
+  range.addEventListener('input', function () { set(Number(range.value)); });
+
+  // With a mouse, the V also follows the pointer along the bridge.
+  if (window.matchMedia('(pointer: fine)').matches) {
+    stage.addEventListener('pointermove', function (e) {
+      if (e.buttons) return;
+      var r = stage.getBoundingClientRect();
+      var t = Math.min(Math.max((e.clientX - r.left) / r.width * 1.06 - 0.03, 0), 1);
+      range.value = Math.round(t * 100);
+      set(Number(range.value));
+    });
+  }
+  place(0.06);
+})();
+
 // Small motion layer. Everything stays readable if this script never runs.
 (function () {
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;

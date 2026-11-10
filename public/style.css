@@ -943,7 +943,7 @@ main *, .site-footer * { border-radius: 0 !important; }
   column-gap: clamp(24px, 3vw, 48px); row-gap: 18px; align-items: center;
 }
 .k-title { display: contents; }
-.k-t1, .k-t2 { font-weight: 900; font-size: clamp(2.6rem, 6.4vw, 7.6rem); line-height: .86; letter-spacing: -0.055em; white-space: nowrap; will-change: translate; }
+.k-t1, .k-t2 { font-weight: 900; font-size: clamp(2.6rem, 6.4vw, 6.2rem); line-height: .86; letter-spacing: -0.055em; white-space: nowrap; will-change: translate; }
 .k-t1 { grid-area: t1; color: #fff; justify-self: start; }
 .k-t2 { grid-area: t2; color: var(--orange); justify-self: end; align-self: start; }
 .k-text { margin: 0; font-size: 18px; line-height: 1.5; color: var(--on-navy); max-width: 21rem; transition: opacity .25s var(--ease); }
@@ -963,7 +963,7 @@ main *, .site-footer * { border-radius: 0 !important; }
 .k-photo:hover .seam-grip, .k-photo:has(.k-seam:active) .seam-grip { transform: translate(-50%, -50%) scale(1.12); }
 .k-photo:has(.k-seam:focus-visible) .seam-grip { outline: 3px solid #fff; outline-offset: 3px; }
 .k-cta { grid-area: cta; align-self: start; }
-.k-cta p { margin: 0 0 20px; color: #fff; font-size: 18px; line-height: 1.5; max-width: 23rem; }
+.k-cta p { margin: 0 0 20px; color: #fff; font-size: 18px; line-height: 1.5; max-width: 20rem; }
 .k-hero .btn.outline { color: #fff; box-shadow: inset 0 0 0 2px #fff; }
 .k-hero .btn.outline:hover { background: #fff; color: var(--navy); }
 
@@ -1078,3 +1078,35 @@ html:not(.js) .k-side > * { grid-area: auto; }
 @media (prefers-reduced-motion: reduce) {
   .k-side .k-text, .js .k-info, .k-t1, .k-t2, .k-side-design, .k-side-manage { transition: none; }
 }
+
+/* ---------- Footer: a bridge you carry the V across ---------- */
+.bridge { position: relative; width: min(100%, 760px); margin: 0 auto 8px; touch-action: pan-y; }
+.bridge-svg { display: block; width: 100%; height: auto; overflow: visible; }
+.bridge-arc, .bridge-trail { fill: none; stroke-width: 22; stroke-linecap: round; }
+.bridge-arc { stroke: rgba(255, 255, 255, .16); }
+.bridge-trail { stroke: #fff; transition: stroke .3s var(--ease); }
+.bridge-v path { fill: none; stroke: var(--orange); stroke-width: 22; stroke-linecap: round; stroke-linejoin: round; }
+.bridge.arrived .bridge-trail { stroke: var(--orange); }
+.bridge.arrived .bridge-v { animation: bridge-hop .5s var(--ease); }
+@keyframes bridge-hop { 40% { translate: 0 -18px; } }
+.bridge-end { position: absolute; bottom: -38px; font-weight: 900; font-size: clamp(1.1rem, .8rem + 1vw, 1.6rem); letter-spacing: -0.03em; color: #fff; }
+.bridge-from { left: 2%; }
+.bridge-to { right: 2%; color: var(--orange); }
+.bridge-hint { position: absolute; left: 50%; bottom: -34px; translate: -50% 0; margin: 0; font-size: 16px; color: var(--on-navy); white-space: nowrap; transition: opacity .4s var(--ease); pointer-events: none; }
+.bridge.moved .bridge-hint { opacity: 0; }
+.bridge-range { position: absolute; inset: 0; width: 100%; height: 100%; margin: 0; opacity: 0; cursor: ew-resize; }
+.bridge:has(.bridge-range:focus-visible) .bridge-v path { stroke: #fff; }
+.bridge:has(.bridge-range:focus-visible) { outline: 3px solid var(--orange); outline-offset: 8px; }
+.site-footer .mark-title { margin-top: 80px; transition: color .3s var(--ease); }
+.footer-mark.bridge-done .mark-title { color: var(--orange); }
+.bridge-cta { display: none; margin: 4px 0 28px; }
+.footer-mark.bridge-done .bridge-cta { display: inline-block; animation: bridge-in .4s var(--ease); }
+@keyframes bridge-in { from { opacity: 0; translate: 0 12px; } }
+@media (max-width: 680px) {
+  .bridge-hint { display: none; }
+  .site-footer .mark-title { margin-top: 32px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .bridge.arrived .bridge-v, .footer-mark.bridge-done .bridge-cta { animation: none; }
+}
+.site-footer .footer-mark { align-items: center; text-align: center; }
