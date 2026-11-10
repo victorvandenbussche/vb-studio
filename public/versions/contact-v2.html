@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact · Victor Vanden Bussche</title>
+  <meta name="description" content="Contact Victor Vanden Bussche about an internship or apprenticeship in product management.">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/versions/style-v16.css">
+  <script src="/versions/site-v1.js" defer></script>
+  <script src="https://web3forms.com/client/script.js" async defer></script>
+  <script src="/contact-form.js" defer></script>
+</head>
+<body class="home">
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="/">
+        <svg class="logo" viewBox="112 84 196 168" aria-hidden="true"><path class="arc" d="M125 148 Q210 44 295 148" fill="none" stroke-width="16" stroke-linecap="round"/><path class="v" d="M153 175 L210 238 L267 175" fill="none" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span class="brand-name">Victor Vanden Bussche</span>
+      </a>
+      <nav aria-label="Pages">
+        <a href="/work">Work</a>
+        <a href="/about">About</a>
+        <a href="/contact" aria-current="page">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="ab-hero page-hero contact-hero">
+      <div class="wrap contact-grid">
+        <div>
+          <p class="ab-kicker">Contact</p>
+          <h1>Let's talk about <span>products.</span></h1>
+          <p class="ab-lead">Looking for an intern or apprentice who speaks both design and business? Send me a message and I'll get back to you.</p>
+          <p class="contact-alt">Prefer LinkedIn? <a href="https://www.linkedin.com/in/victor-vanden-bussche-24b4182b4/" rel="me noopener" target="_blank">Connect with me there ↗</a></p>
+        </div>
+
+        <form class="contact-form" id="contact-form" action="https://api.web3forms.com/submit" method="POST">
+          <input type="hidden" name="access_key" value="96596cee-8f6e-4fcb-bbd4-d20b49eae463">
+          <input type="hidden" name="subject" value="New message from your portfolio">
+          <input type="hidden" name="from_name" value="Victor's portfolio">
+          <input type="checkbox" name="botcheck" class="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+          <label for="cf-name">Your name</label>
+          <input id="cf-name" name="name" type="text" autocomplete="name" required maxlength="120">
+
+          <label for="cf-email">Your email <small>(so I can reply)</small></label>
+          <input id="cf-email" name="email" type="email" autocomplete="email" required maxlength="200">
+
+          <label for="cf-company">Company <small>(optional)</small></label>
+          <input id="cf-company" name="company" type="text" autocomplete="organization" maxlength="160">
+
+          <label for="cf-message">Your message</label>
+          <textarea id="cf-message" name="message" rows="6" required maxlength="4000"></textarea>
+
+          <div class="h-captcha" data-captcha="true"></div>
+
+          <button class="btn" type="submit">Send message</button>
+          <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-mark">
+      <svg class="logo" viewBox="112 84 196 168" aria-hidden="true"><path class="arc" d="M125 148 Q210 44 295 148" fill="none" stroke-width="16" stroke-linecap="round"/><path class="v" d="M153 175 L210 238 L267 175" fill="none" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <p class="mark-title">The bridge from product to business</p>
+      <p class="mark-text">The arc is the bridge between a product and its market. The V is the person who carries it.</p>
+      <p class="footer-links"><a href="/work">Work</a> · <a href="/about">About</a> · <a href="/contact">Contact</a> · <a href="https://www.linkedin.com/in/victor-vanden-bussche-24b4182b4/" rel="me noopener" target="_blank">LinkedIn</a></p>
+      <p class="footer-small">© 2026 Victor Vanden Bussche</p>
+    </div>
+  </footer>
+</body>
+</html>

@@ -29,6 +29,32 @@
   });
 })();
 
+// The live thing: drag the line in the portrait between designer and manager.
+(function () {
+  document.documentElement.classList.add('js');
+  var hero = document.querySelector('.k-hero');
+  var photo = hero && hero.querySelector('.k-photo');
+  var range = photo && photo.querySelector('.k-seam');
+  if (!range) return;
+  function set(v) {
+    photo.style.setProperty('--cut', v + '%');
+    hero.style.setProperty('--mix', ((v - 12) / 76).toFixed(3));
+  }
+  range.addEventListener('input', function () { set(range.value); });
+  set(range.value);
+
+  // Kinetic title: the two lines drift apart as the hero scrolls away.
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var t1 = hero.querySelector('.k-t1'), t2 = hero.querySelector('.k-t2'), ticking = false;
+  function drift() {
+    ticking = false;
+    var p = Math.min(Math.max(window.scrollY / hero.offsetHeight, 0), 1);
+    if (t1) t1.style.translate = (-p * 12).toFixed(2) + 'vw 0';
+    if (t2) t2.style.translate = (p * 12).toFixed(2) + 'vw 0';
+  }
+  window.addEventListener('scroll', function () { if (!ticking) { ticking = true; requestAnimationFrame(drift); } }, { passive: true });
+})();
+
 // Small motion layer. Everything stays readable if this script never runs.
 (function () {
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -45,11 +71,12 @@
 
   // Entrances: the parts of each section rise in, one after the other.
   var groups = [
+    '.k-t1, .k-text-design, .k-photo, .k-text-manage, .k-t2, .k-cta > *',
     '.side-design > *, .split-photo, .side-manage > *, .split-intro > *, .ab-hero-grid > div > *',
     '.page-head .wrap > *',
     '.project-hero .back, .project-hero h1, .project-hero .lead, .facts > div'
   ];
-  var perSection = '.section-head > *, .about-photo, .about-text > *, .timeline > li, .path > li, .card, .tile, .feature, .ab-side, .ab-hl-card, .ab-cv-grid > div, .ab-toolkit > div, .ab-story-grid > *, .ab-cta .wrap > *, .bg-grid > div, .highlight, .row-head, .skills > div, .band .words > *, .band figure, .contact > div > *, .contact-links .btn, .article > *, .next';
+  var perSection = '.k-work-head > *, .k-panel-text > *, .section-head > *, .about-photo, .about-text > *, .timeline > li, .path > li, .card, .tile, .feature, .ab-side, .ab-hl-card, .ab-cv-grid > div, .ab-toolkit > div, .ab-story-grid > *, .ab-cta .wrap > *, .bg-grid > div, .highlight, .row-head, .skills > div, .band .words > *, .band figure, .contact > div > *, .contact-links .btn, .article > *, .next';
 
   var items = [];
   groups.forEach(function (sel) {

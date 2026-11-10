@@ -28,7 +28,7 @@
   </header>
 
   <main>
-    <section class="split-hero">
+    <section class="k-hero" aria-labelledby="k-title">
       <svg width="0" height="0" aria-hidden="true" focusable="false" style="position:absolute">
         <filter id="duotone" color-interpolation-filters="sRGB">
           <feColorMatrix type="saturate" values="0"/>
@@ -39,57 +39,53 @@
           </feComponentTransfer>
         </filter>
       </svg>
-      <div class="wrap split-grid">
-        <div class="side side-design">
-          <p class="side-label">Product</p>
-          <p class="side-word">designer</p>
-          <p class="side-text">I turn ideas into products through sketches, 3D models, prototypes and user tests.</p>
-        </div>
+      <div class="k-grid">
+        <h1 id="k-title" class="k-title"><span class="sr-only">Victor Vanden Bussche: </span><span class="k-t1">Product designer</span><span class="sr-only">, </span><span class="k-t2">Product manager</span></h1>
 
-        <div class="split-center">
-          <h1 class="sr-only">Victor Vanden Bussche</h1>
-        <figure class="split-photo">
+        <p class="k-text k-text-design">I turn ideas into products through sketches, 3D models, prototypes and user tests.</p>
+
+        <figure class="k-photo" style="--cut: 58%">
           <img class="half half-design" src="/images/victor-portrait.jpg" width="700" height="840" alt="">
           <img class="half half-real" src="/images/victor-portrait.jpg" width="700" height="840" alt="Portrait of Victor Vanden Bussche: one half drawn like a design file, the other half the real photo.">
-          <span class="seam" aria-hidden="true"></span>
+          <span class="seam" aria-hidden="true"><span class="seam-grip"></span></span>
+          <input class="k-seam" type="range" min="12" max="88" value="58" aria-label="Slide between designer and manager">
         </figure>
-        </div>
 
-        <div class="side side-manage">
-          <p class="side-label">Product</p>
-          <p class="side-word">manager</p>
-          <p class="side-text">I turn products into business through pricing, competitor analysis and client presentations.</p>
-        </div>
-      </div>
+        <p class="k-text k-text-manage">I turn products into business through pricing, competitor analysis and client presentations.</p>
 
-      <div class="wrap split-intro">
-        <p>I'm open to an internship or apprenticeship in product management or business development.</p>
-        <div class="home-actions">
-          <a class="btn" href="/work">See my work</a>
-          <a class="btn outline" href="/contact">Get in touch</a>
+        <div class="k-cta">
+          <p>I'm open to an internship or apprenticeship in product management or business development.</p>
+          <div class="home-actions">
+            <a class="btn" href="/work">See my work</a>
+            <a class="btn outline" href="/contact">Get in touch</a>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="block" data-people-only>
-      <div class="wrap">
-        <div class="row-head">
-          <h2>Selected work</h2>
-          <a class="text-link" href="/work">All work <span aria-hidden="true">→</span></a>
-        </div>
-        <div class="tiles">
-          <a class="tile" href="/myramp">
-            <div class="tile-media"><img src="/images/myramp-prototype.webp" width="835" height="626" alt="" loading="lazy"></div>
-            <h3>MyRamp</h3>
-            <p>A portable ramp for active wheelchair users · Bachelor thesis</p>
-          </a>
-          <a class="tile" href="/backplate">
-            <div class="tile-media render"><img src="/images/backplate-front.png" width="336" height="271" alt="" loading="lazy"></div>
-            <h3>Backplate</h3>
-            <p>A back support shaped to one body · Parametric design</p>
-          </a>
-        </div>
+    <section class="k-work" data-people-only aria-labelledby="k-work-title">
+      <div class="k-work-head">
+        <h2 id="k-work-title">Selected work</h2>
+        <a class="text-link" href="/work">All work <span aria-hidden="true">→</span></a>
       </div>
+      <a class="k-panel k-navy" href="/myramp">
+        <div class="k-panel-media"><img src="/images/myramp-in-use.webp" width="779" height="779" alt="A wheelchair user rolling up a kerb on the two MyRamp aluminium ramps." loading="lazy" style="object-position: center 65%"></div>
+        <div class="k-panel-text">
+          <p class="k-meta">2024 · Bachelor thesis · My Add On</p>
+          <h3>MyRamp</h3>
+          <p>A light, foldable aluminium ramp that lets active wheelchair users cross kerbs and steps on their own.</p>
+          <span class="k-more">Read the story <span aria-hidden="true">→</span></span>
+        </div>
+      </a>
+      <a class="k-panel k-orange" href="/backplate">
+        <div class="k-panel-media"><img src="/images/backplate-in-use.jpg" width="532" height="924" alt="Concept visual: a student wearing a backpack, with the Backplate inside the bag, resting against his back." loading="lazy"></div>
+        <div class="k-panel-text">
+          <p class="k-meta">Parametric design · 3D printing</p>
+          <h3>Backplate</h3>
+          <p>A back support shaped to one body, from a 3D scan to a parametric model to a printed open-cell shell.</p>
+          <span class="k-more">Read the story <span aria-hidden="true">→</span></span>
+        </div>
+      </a>
     </section>
   </main>
 
