@@ -1,0 +1,9 @@
+# robots.txt for Victor's site (https://vb-pm.vdb1.workers.dev)
+# People and agents are both welcome here.
+
+User-agent: *
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
+Allow: /
+Allow: /versions/
+
+Sitemap: https://vb-pm.vdb1.workers.dev/sitemap.xml
