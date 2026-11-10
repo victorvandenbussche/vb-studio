@@ -4,5 +4,7 @@
   "name": "vb-pm",
   "compatibility_date": "2026-11-01",
   // Everything in public/ is your website. Nothing else in this folder is published.
-  "assets": { "directory": "./public" }
+  "assets": { "directory": "./public" },
+  // Before each deploy, rebuild public/sitemap.xml so it always lists the current pages.
+  "build": { "command": "node scripts/make-sitemap.mjs" }
 }
