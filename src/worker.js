@@ -61,7 +61,7 @@ export default {
 };
 
 // Pages that only people may read (with or without .html or a trailing slash).
-const PEOPLE_ONLY = new Set(["about", "contact", "work", "myramp", "backplate"]
+const PEOPLE_ONLY = new Set(["contact", "work", "myramp", "backplate"]
   .flatMap((p) => ["/" + p, "/" + p + ".html", "/" + p + "/"]));
 function isPeopleOnly(path) { const p = path.toLowerCase(); return PEOPLE_ONLY.has(p) || p.startsWith("/versions/") || p.startsWith("/images/"); }
 

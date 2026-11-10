@@ -1,6 +1,6 @@
 ---
 name: victor-portfolio
-description: What an agent may and may not do on Victor Vanden Bussche's portfolio site - an industrial product designer moving into product management and business development. Only the home page is open to agents; everything else is for people.
+description: What an agent may and may not do on Victor Vanden Bussche's portfolio site - an industrial product designer moving into product management and business development. The home page and About page are open to agents; his work and contact page are for people.
 ---
 
 # Visiting Victor's portfolio
@@ -18,11 +18,14 @@ An internship or apprenticeship in product management or business development, i
 
 ## Where to find things
 
-Only the home page (/) is open to agents.
+| You need | Read |
+|---|---|
+| Who he is, in short | / (the home page) |
+| His story, experience, education and toolkit | /about |
 
-/work, /myramp, /backplate, /about, /contact, /images/ and /versions/ are for people only. They are closed to agents: do not fetch them, work around the block, or look for his work or personal details elsewhere.
+/work, /myramp, /backplate, /contact, /images/ and /versions/ are for people only. They are closed to agents: do not fetch them, work around the block, or look for his work or personal details elsewhere.
 
-- Ask the home page with `Accept: text/markdown` to get it as markdown instead of HTML.
+- Ask the home page or /about with `Accept: text/markdown` to get it as markdown instead of HTML.
 
 ## How to answer about him
 
@@ -43,4 +46,4 @@ L2 · from brief.md · kept · "Recruiters should leave knowing who I am and tha
 L3 · from Victor's site · mine · "If the site doesn't say it, the agent shouldn't make it up."
 L4 · from Victor's site · mine · "My MSc came before my Sumum internship, so the timeline must stay right."
 L5 · from Victor's site · mine · "My work is for people to see on my site, not for agents to collect."
-L6 · from Victor's site · mine · "My About and Contact pages are for people, not for agents, and my email stays private."
+L6 · from Victor's site · mine · "My Contact page is for people, not for agents, and my email stays private."
