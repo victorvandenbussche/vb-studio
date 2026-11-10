@@ -16,7 +16,7 @@
             "name": "page",
             "in": "path",
             "required": true,
-            "schema": { "type": "string", "examples": ["work", "myramp", "backplate"] }
+            "schema": { "type": "string", "examples": [""] }
           },
           {
             "name": "Accept",

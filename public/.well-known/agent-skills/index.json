@@ -4,9 +4,9 @@
     {
       "name": "victor-portfolio",
       "type": "skill-md",
-      "description": "How to read Victor Vanden Bussche's portfolio site and talk about his work correctly - an industrial product designer moving into product management and business development. His About and Contact pages are for people only.",
+      "description": "What an agent may and may not do on Victor Vanden Bussche's portfolio site - an industrial product designer moving into product management and business development. Only the home page is open to agents; everything else is for people.",
       "url": "/.well-known/agent-skills/victor-portfolio/SKILL.md",
-      "digest": "sha256:bbb18988361c649cfbaa5fcb8908c5df4d01772cf7408497676579923c535d74"
+      "digest": "sha256:561c83df1c163f66bc9277655871bfe41329a8a0c78bf871530eb96340f133a5"
     }
   ]
 }
