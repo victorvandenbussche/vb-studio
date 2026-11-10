@@ -849,3 +849,5 @@ body.home .article blockquote { background: #ffffff; }
   .site-header nav { gap: 14px; }
   .site-header nav a { font-size: 14px; }
 }
+.ab-story.ab-first { border-top: 0; padding-top: 72px; }
+.ab-story h1 { font-size: clamp(1.8rem, 3vw, 2.3rem); margin: 0; letter-spacing: -0.02em; font-weight: 700; }
