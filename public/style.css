@@ -851,3 +851,6 @@ body.home .article blockquote { background: #ffffff; }
 }
 .ab-story.ab-first { border-top: 0; padding-top: 72px; }
 .ab-story h1 { font-size: clamp(1.8rem, 3vw, 2.3rem); margin: 0; letter-spacing: -0.02em; font-weight: 700; }
+.ab-story.ab-first { padding-top: 64px; }
+.ab-story.ab-first .ab-story-grid { align-items: start; }
+.ab-story.ab-first h1 { font-size: clamp(2.6rem, 5.4vw, 4.4rem); line-height: 1; letter-spacing: -0.04em; }
