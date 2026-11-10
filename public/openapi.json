@@ -1,0 +1,63 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Victor's site, for agents",
+    "version": "1.0.0",
+    "description": "A read-only portfolio site. Every page can be read as HTML (default) or as markdown (send Accept: text/markdown). No sign-in, no keys."
+  },
+  "servers": [{ "url": "https://vb-pm.vdb1.workers.dev" }],
+  "paths": {
+    "/{page}": {
+      "get": {
+        "summary": "Read a page",
+        "description": "Pages are listed in /sitemap.xml. Use an empty page for the home page.",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "string", "examples": ["about", "work", "contact", "myramp", "backplate"] }
+          },
+          {
+            "name": "Accept",
+            "in": "header",
+            "required": false,
+            "schema": { "type": "string", "enum": ["text/html", "text/markdown"] },
+            "description": "Ask for text/markdown to get the page as markdown."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The page.",
+            "content": {
+              "text/html": { "schema": { "type": "string" } },
+              "text/markdown": { "schema": { "type": "string" } }
+            }
+          },
+          "404": { "description": "No such page." }
+        }
+      }
+    },
+    "/sitemap.xml": {
+      "get": {
+        "summary": "List of all main pages",
+        "responses": { "200": { "description": "Sitemap.", "content": { "application/xml": { "schema": { "type": "string" } } } } }
+      }
+    },
+    "/health": {
+      "get": {
+        "summary": "Is the site up?",
+        "responses": {
+          "200": {
+            "description": "The site is up.",
+            "content": {
+              "application/health+json": {
+                "schema": { "type": "object", "properties": { "status": { "type": "string", "const": "pass" } } }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

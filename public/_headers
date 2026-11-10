@@ -1,0 +1,14 @@
+# Extra response headers. Cloudflare reads this file; it is not shown as a page.
+# Link headers (RFC 8288) tell visiting agents where the useful files are.
+
+/
+  Link: </sitemap.xml>; rel="sitemap"; type="application/xml"
+  Link: </about.html>; rel="author"; type="text/html"
+  Link: </contact.html>; rel="contact"; type="text/html"
+  Link: </.well-known/api-catalog>; rel="api-catalog"
+
+/index.html
+  Link: </sitemap.xml>; rel="sitemap"; type="application/xml"
+  Link: </about.html>; rel="author"; type="text/html"
+  Link: </contact.html>; rel="contact"; type="text/html"
+  Link: </.well-known/api-catalog>; rel="api-catalog"

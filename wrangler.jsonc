@@ -3,8 +3,11 @@
   // "name" must be your repository's name, for example "mika-site".
   "name": "vb-pm",
   "compatibility_date": "2026-11-01",
+  // A small Worker in front of public/: agents that ask for markdown get markdown,
+  // browsers get the normal HTML. The pages still live in public/.
+  "main": "src/worker.js",
   // Everything in public/ is your website. Nothing else in this folder is published.
-  "assets": { "directory": "./public" },
+  "assets": { "directory": "./public", "binding": "ASSETS", "run_worker_first": true },
   // Before each deploy, rebuild public/sitemap.xml so it always lists the current pages.
   "build": { "command": "node scripts/make-sitemap.mjs" }
 }

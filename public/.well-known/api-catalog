@@ -1,0 +1,25 @@
+{
+  "linkset": [
+    {
+      "anchor": "https://vb-pm.vdb1.workers.dev/",
+      "service-desc": [
+        {
+          "href": "https://vb-pm.vdb1.workers.dev/openapi.json",
+          "type": "application/vnd.oai.openapi+json;version=3.1"
+        }
+      ],
+      "service-doc": [
+        {
+          "href": "https://vb-pm.vdb1.workers.dev/api.md",
+          "type": "text/markdown"
+        }
+      ],
+      "status": [
+        {
+          "href": "https://vb-pm.vdb1.workers.dev/health",
+          "type": "application/health+json"
+        }
+      ]
+    }
+  ]
+}
