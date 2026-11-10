@@ -661,7 +661,7 @@ section.block.tight { padding-top: 56px; }
 .footer-mark { display: flex; flex-direction: column; align-items: center; text-align: center; }
 .footer-mark .logo { width: 56px; height: 48px; margin-bottom: 14px; }
 .mark-title { font-family: "Space Grotesk", sans-serif; font-weight: 700; color: var(--ink); font-size: 19px; margin: 0 0 6px; }
-.mark-text { margin: 0 0 24px; max-width: 30rem; color: var(--text); font-size: 16px; }
+.mark-text { margin: 0 0 24px; max-width: 46rem; color: var(--text); font-size: 16px; }
 .footer-links { margin: 0 0 8px; font-size: 15px; }
 .footer-links a { color: var(--ink); text-decoration: none; font-weight: 500; }
 .footer-links a:hover { color: var(--orange-ink); }
@@ -692,11 +692,11 @@ body.home .tile-media { background: #e8e1d5; }
 body.home .tile-media.render { background: #ececec; }
 
 .split-hero { padding: 40px 0 72px; }
-.split-grid { display: grid; grid-template-columns: 1fr 1.15fr 1fr; gap: 40px; align-items: center; }
+.split-grid { display: grid; grid-template-columns: 1fr 0.85fr 1fr; gap: 32px; align-items: center; }
 .side-hint { display: flex; align-items: center; gap: 10px; font-size: 14px; color: var(--muted); margin: 0 0 10px; }
 .side-label { font-family: "Space Grotesk", sans-serif; font-weight: 600; font-size: 19px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin: 0; }
 .side-word { font-family: "Space Grotesk", sans-serif; font-weight: 700; font-size: clamp(3rem, 6vw, 5rem); line-height: .95; letter-spacing: -0.045em; margin: 0 0 20px; }
-.side-text { margin: 0; font-size: 16px; line-height: 1.6; color: var(--text); max-width: 22rem; }
+.side-text { margin: 0; font-size: 16px; line-height: 1.6; color: var(--text); max-width: 25rem; }
 .side-design { text-align: right; }
 .side-design .side-hint { justify-content: flex-end; }
 .side-design .side-text { margin-left: auto; }
@@ -775,7 +775,7 @@ body.home .tile-media.render { background: #ececec; }
 .ab-hero-grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: 56px; align-items: center; }
 .ab-hero h1 { font-size: clamp(2.8rem, 6vw, 4.8rem); line-height: 1; letter-spacing: -0.04em; margin: 0 0 24px; font-weight: 700; }
 .ab-hero h1 span { color: var(--orange-btn); }
-.ab-lead { font-size: 19px; line-height: 1.55; color: var(--text); max-width: 32rem; margin: 0 0 24px; }
+.ab-lead { font-size: 19px; line-height: 1.55; color: var(--text); max-width: 56rem; margin: 0 0 24px; }
 .ab-pills { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 8px; }
 .ab-pills li { background: var(--navy); color: #fff; font-size: 15px; font-weight: 500; padding: 7px 16px; border-radius: 999px; }
 .ab-pills li:nth-child(2) { background: var(--orange-btn); }
@@ -819,7 +819,7 @@ body.home .tile-media.render { background: #ececec; }
 .ab-cta { background: var(--navy); color: var(--on-navy); padding: 88px 0; text-align: center; }
 .ab-cta h2 { color: #fff; font-size: clamp(2rem, 4.4vw, 3.2rem); line-height: 1.05; letter-spacing: -0.03em; margin: 0 0 16px; }
 .ab-cta h2 span { color: var(--orange); }
-.ab-cta p { margin: 0 auto 28px; max-width: 30rem; }
+.ab-cta p { margin: 0 auto 28px; max-width: 44rem; }
 .ab-cta .home-actions { justify-content: center; }
 
 @media (max-width: 820px) {
