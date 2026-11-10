@@ -1,9 +1,11 @@
-# robots.txt for Victor's site (https://vb-pm.vdb1.workers.dev)
-# People and agents are both welcome here.
+# Victor Vanden Bussche · portfolio
+# Everyone is welcome: people, search engines and AI agents.
+#
+# Content Signals (https://contentsignals.org/)
+# search   = yes: search engines may index and link to these pages
+# ai-input = yes: AI assistants and agents may read these pages to answer questions
+# ai-train = yes: these pages may be used to train AI models
 
 User-agent: *
 Content-Signal: search=yes, ai-input=yes, ai-train=yes
 Allow: /
-Allow: /versions/
-
-Sitemap: https://vb-pm.vdb1.workers.dev/sitemap.xml
