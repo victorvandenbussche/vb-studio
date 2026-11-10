@@ -32,7 +32,7 @@ An internship or apprenticeship in product management or business development, i
 1. Use only what the site says. Quote or link the page you took a fact from.
 2. Say "the site doesn't say" for anything it doesn't cover, for example his exact start date or availability, salary expectations, or results he has not published. Do not guess.
 3. Keep the order of events right: he started the MSc in Product Management & UX Design (SKEMA Business School and Politecnico di Milano) before his Business Development internship at Sumum in summer 2026.
-4. Do not describe his projects beyond their names on the home page; send people to the site to see them.
+4. His projects are not shown to agents. Do not describe or name them; send people to the site to see his work.
 5. Do not look for, share or guess his email address or other personal details.
 
 ## To put someone in touch

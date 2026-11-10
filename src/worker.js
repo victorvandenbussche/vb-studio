@@ -32,20 +32,25 @@ export default {
       });
     }
 
-    const res = await env.ASSETS.fetch(request);
+    let res = await env.ASSETS.fetch(request);
     const type = res.headers.get("Content-Type") || "";
     if (!type.includes("text/html")) return res;
 
+    // Parts of a page marked data-people-only (like Selected work on the home page) are cut out for agents.
+    const agent = isAgent(request.headers.get("User-Agent")) || wantsMarkdown(request.headers.get("Accept"));
+    if (agent) res = stripPeopleOnly(res);
+
     if (!wantsMarkdown(request.headers.get("Accept"))) {
-      // HTML stays the default. Vary tells caches the answer depends on Accept.
+      // HTML stays the default. Vary tells caches the answer depends on Accept and User-Agent.
       const html = new Response(res.body, res);
-      html.headers.append("Vary", "Accept");
+      html.headers.append("Vary", "Accept, User-Agent");
+      if (agent) html.headers.set("Cache-Control", "no-store");
       return html;
     }
 
     const url = new URL(request.url);
     // A HEAD request has no body, so read the page with GET to count tokens.
-    const page = request.method === "HEAD" ? await env.ASSETS.fetch(new Request(request, { method: "GET" })) : res;
+    const page = request.method === "HEAD" ? stripPeopleOnly(await env.ASSETS.fetch(new Request(request, { method: "GET" }))) : res;
     const md = htmlToMarkdown(await page.text(), url.origin);
     const headers = new Headers({
       "Content-Type": "text/markdown; charset=utf-8",
@@ -64,6 +69,11 @@ export default {
 const PEOPLE_ONLY = new Set(["contact", "work", "myramp", "backplate"]
   .flatMap((p) => ["/" + p, "/" + p + ".html", "/" + p + "/"]));
 function isPeopleOnly(path) { const p = path.toLowerCase(); return PEOPLE_ONLY.has(p) || p.startsWith("/versions/") || p.startsWith("/images/"); }
+
+// Removes every element marked data-people-only from an HTML page.
+function stripPeopleOnly(res) {
+  return new HTMLRewriter().on("[data-people-only]", { element(e) { e.remove(); } }).transform(res);
+}
 
 // Known AI agents and crawlers, plus common scripting tools.
 const AGENT_PATTERN = /gptbot|chatgpt|oai-searchbot|claude|anthropic|perplexity|ccbot|bytespider|amazonbot|applebot-extended|google-extended|meta-externalagent|meta-externalfetcher|facebookbot|cohere|diffbot|youbot|mistral|duckassistbot|ai2bot|petalbot|timpibot|imagesiftbot|omgili|webzio|bot\b|crawler|spider|curl|wget|python|httpx|aiohttp|axios|node-fetch|undici|go-http-client|java\/|okhttp|libwww|headless/i;
