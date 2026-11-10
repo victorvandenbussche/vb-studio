@@ -1,3 +1,15 @@
+// Full lines: keep the last two words of each text together, so no word sits alone on the last line.
+(function () {
+  var els = document.querySelectorAll('main p, main li, main dd, main figcaption, main blockquote, footer p');
+  Array.prototype.forEach.call(els, function (el) {
+    var walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT), node, last = null;
+    while ((node = walker.nextNode())) { if (node.nodeValue.trim()) last = node; }
+    if (!last) return;
+    var t = last.nodeValue, end = t.replace(/\s+$/, '').length, i = t.lastIndexOf(' ', end - 1);
+    if (i > 0 && t.slice(0, i).trim()) last.nodeValue = t.slice(0, i) + ' ' + t.slice(i + 1);
+  });
+})();
+
 // Small motion layer. Everything stays readable if this script never runs.
 (function () {
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
