@@ -36,11 +36,34 @@
   var photo = hero && hero.querySelector('.k-photo');
   var range = photo && photo.querySelector('.k-seam');
   if (!range) return;
+  // Right end: the whole picture drawn, the designer I was. Left end: the whole photo, the manager I'll become.
   function set(v) {
+    v = Number(v);
     photo.style.setProperty('--cut', v + '%');
-    hero.style.setProperty('--mix', ((v - 12) / 76).toFixed(3));
+    photo.style.setProperty('--gx', v > 94 ? '-100%' : v < 6 ? '0%' : '-50%');
+    hero.style.setProperty('--mix', (v / 100).toFixed(3));
+    hero.classList.toggle('is-design', v >= 85);
+    hero.classList.toggle('is-manage', v <= 15);
   }
-  range.addEventListener('input', function () { set(range.value); });
+  var anim;
+  function glide(to) {
+    cancelAnimationFrame(anim);
+    var from = Number(range.value), t0 = null, reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduce) { range.value = to; set(to); return; }
+    (function step(t) {
+      if (t0 === null) t0 = t;
+      var k = Math.min((t - t0) / 260, 1), e = 1 - Math.pow(1 - k, 3), v = Math.round(from + (to - from) * e);
+      range.value = v; set(v);
+      if (k < 1) anim = requestAnimationFrame(step);
+    })(performance.now());
+  }
+  range.addEventListener('input', function () { cancelAnimationFrame(anim); set(range.value); });
+  // Let go near an end and it snaps all the way.
+  range.addEventListener('change', function () {
+    var v = Number(range.value);
+    if (v >= 75 && v < 100) glide(100);
+    else if (v <= 25 && v > 0) glide(0);
+  });
   set(range.value);
 
   // Kinetic title: the two lines drift apart as the hero scrolls away.
@@ -71,7 +94,7 @@
 
   // Entrances: the parts of each section rise in, one after the other.
   var groups = [
-    '.k-t1, .k-text-design, .k-photo, .k-text-manage, .k-t2, .k-cta > *',
+    '.k-t1, .k-side-design, .k-photo, .k-side-manage, .k-t2, .k-cta > *',
     '.side-design > *, .split-photo, .side-manage > *, .split-intro > *, .ab-hero-grid > div > *',
     '.page-head .wrap > *',
     '.project-hero .back, .project-hero h1, .project-hero .lead, .facts > div'

@@ -947,8 +947,6 @@ main *, .site-footer * { border-radius: 0 !important; }
 .k-t1 { grid-area: t1; color: #fff; justify-self: start; }
 .k-t2 { grid-area: t2; color: var(--orange); justify-self: end; align-self: start; }
 .k-text { margin: 0; font-size: 18px; line-height: 1.5; color: var(--on-navy); max-width: 21rem; transition: opacity .25s var(--ease); }
-.k-text-design { grid-area: dt; justify-self: end; text-align: right; opacity: calc(.4 + var(--mix) * .6); }
-.k-text-manage { grid-area: mt; opacity: calc(1 - var(--mix) * .6); }
 .k-photo { grid-area: ph; position: relative; margin: 0; aspect-ratio: 5 / 6; justify-self: center; width: min(100%, calc(56svh * 5 / 6)); }
 .k-photo .half { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .k-photo .half-design { filter: url(#duotone); clip-path: inset(0 calc(100% - var(--cut)) 0 0); }
@@ -989,9 +987,7 @@ main *, .site-footer * { border-radius: 0 !important; }
 
 @media (max-width: 1100px) {
   .k-grid { grid-template-columns: 1fr 1fr; grid-template-areas: "t1 t1" "ph dt" "ph mt" "t2 t2" "cta cta"; }
-  .k-text-design { justify-self: start; text-align: left; align-self: end; }
-  .k-text-manage { align-self: start; }
-  .k-photo { width: 100%; }
+      .k-photo { width: 100%; }
   .k-t1, .k-t2 { font-size: clamp(2.4rem, 9vw, 6rem); }
 }
 @media (max-width: 680px) {
@@ -1042,3 +1038,43 @@ main *, .site-footer * { border-radius: 0 !important; }
 body.home .project-hero .facts > div { background: var(--navy-2); }
 .project-hero .facts dt { color: var(--orange); }
 .project-hero .facts dd { color: #fff; }
+
+/* The slider as the active part: each end opens its own story */
+.k-side { display: grid; max-width: 23rem; }
+.k-side > * { grid-area: 1 / 1; }
+.k-side-design { grid-area: dt; justify-self: end; text-align: right; align-self: center; }
+.k-side-manage { grid-area: mt; justify-self: start; align-self: center; }
+.k-side .k-text { max-width: none; align-self: center; transition: opacity .3s var(--ease), translate .3s var(--ease); }
+.k-side-design .k-text { opacity: calc(.4 + var(--mix) * .6); }
+.k-side-manage .k-text { opacity: calc(1 - var(--mix) * .6); }
+.k-info { align-self: center; }
+.k-info-title { margin: 0 0 14px; font-weight: 900; font-size: clamp(1.5rem, 1rem + 1.2vw, 2.1rem); line-height: 1; letter-spacing: -0.04em; color: #fff; }
+.k-side-manage .k-info-title { color: var(--orange); }
+.k-info ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.k-info li { font-size: 16px; line-height: 1.4; color: var(--on-navy); }
+.k-info li b { display: block; font-weight: 700; color: #fff; font-size: 15px; }
+.js .k-info { opacity: 0; visibility: hidden; translate: 0 16px; transition: opacity .35s var(--ease), translate .35s var(--ease), visibility 0s .35s; }
+.k-hero.is-design .k-side-design .k-info,
+.k-hero.is-manage .k-side-manage .k-info { opacity: 1; visibility: visible; translate: 0 0; transition: opacity .35s var(--ease) .08s, translate .35s var(--ease) .08s, visibility 0s; }
+.k-hero.is-design .k-side-design .k-text,
+.k-hero.is-manage .k-side-manage .k-text { opacity: 0; translate: 0 -12px; }
+/* The other side steps back */
+.k-t1, .k-t2, .k-side-design, .k-side-manage { transition: opacity .35s var(--ease); }
+.k-hero.is-design .k-t2, .k-hero.is-design .k-side-manage { opacity: .25; }
+.k-hero.is-manage .k-t1, .k-hero.is-manage .k-side-design { opacity: .25; }
+/* The handle stays inside the picture at both ends */
+.js .seam-grip { transform: translate(var(--gx, -50%), -50%); }
+.k-photo:hover .seam-grip, .k-photo:has(.k-seam:active) .seam-grip { transform: translate(var(--gx, -50%), -50%) scale(1.12); }
+/* Without script, both stories stay readable under the short lines */
+html:not(.js) .k-side { gap: 20px; }
+html:not(.js) .k-side > * { grid-area: auto; }
+@media (max-width: 1100px) {
+  .k-side-design { justify-self: start; text-align: left; align-self: end; }
+  .k-side-manage { align-self: start; }
+}
+@media (max-width: 680px) {
+  .k-side { max-width: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .k-side .k-text, .js .k-info, .k-t1, .k-t2, .k-side-design, .k-side-manage { transition: none; }
+}
