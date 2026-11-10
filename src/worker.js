@@ -23,6 +23,15 @@ export default {
       return out;
     }
 
+    // About and Contact are for people only: AI agents, crawlers and scripts get a polite "no".
+    if (isPeopleOnly(path) && (isAgent(request.headers.get("User-Agent")) || wantsMarkdown(request.headers.get("Accept")))) {
+      return new Response(request.method === "HEAD" ? null :
+        "This page is for people only. Victor's projects are open to agents at /work.\n", {
+        status: 403,
+        headers: { "Content-Type": "text/plain; charset=utf-8", "Cache-Control": "no-store", "Vary": "Accept, User-Agent" },
+      });
+    }
+
     const res = await env.ASSETS.fetch(request);
     const type = res.headers.get("Content-Type") || "";
     if (!type.includes("text/html")) return res;
@@ -50,6 +59,14 @@ export default {
     return new Response(request.method === "HEAD" ? null : md, { status: res.status, headers });
   },
 };
+
+// Pages that only people may read (with or without .html or a trailing slash).
+const PEOPLE_ONLY = new Set(["/about", "/about.html", "/about/", "/contact", "/contact.html", "/contact/"]);
+function isPeopleOnly(path) { const p = path.toLowerCase(); return PEOPLE_ONLY.has(p) || p.startsWith("/versions/"); }
+
+// Known AI agents and crawlers, plus common scripting tools.
+const AGENT_PATTERN = /gptbot|chatgpt|oai-searchbot|claude|anthropic|perplexity|ccbot|bytespider|amazonbot|applebot-extended|google-extended|meta-externalagent|meta-externalfetcher|facebookbot|cohere|diffbot|youbot|mistral|duckassistbot|ai2bot|petalbot|timpibot|imagesiftbot|omgili|webzio|bot\b|crawler|spider|curl|wget|python|httpx|aiohttp|axios|node-fetch|undici|go-http-client|java\/|okhttp|libwww|headless/i;
+function isAgent(userAgent) { return !userAgent || AGENT_PATTERN.test(userAgent); }
 
 // True when the visitor prefers markdown over HTML.
 function wantsMarkdown(accept) {

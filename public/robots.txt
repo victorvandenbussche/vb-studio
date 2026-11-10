@@ -1,6 +1,7 @@
 # robots.txt for Victor's site (https://vb-pm.vdb1.workers.dev)
 # People and agents are both welcome here.
-# My policy: AI search, AI answers and AI training are all allowed.
+# My policy: AI search, AI answers and AI training are allowed,
+# except on /about, /contact and /versions/, which are for people only.
 
 # AI search crawlers: fetch pages that AI assistants quote in answers
 User-agent: OAI-SearchBot
@@ -10,6 +11,9 @@ User-agent: Claude-User
 User-agent: PerplexityBot
 User-agent: Perplexity-User
 Content-Signal: search=yes, ai-input=yes, ai-train=yes
+Disallow: /about
+Disallow: /contact
+Disallow: /versions/
 Allow: /
 
 # AI training crawlers: collect data to train models
@@ -19,6 +23,9 @@ User-agent: Google-Extended
 User-agent: Applebot-Extended
 User-agent: CCBot
 Content-Signal: search=yes, ai-input=yes, ai-train=yes
+Disallow: /about
+Disallow: /contact
+Disallow: /versions/
 Allow: /
 
 # Everyone else
