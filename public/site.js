@@ -14,11 +14,11 @@
 
   // Entrances: the parts of each section rise in, one after the other.
   var groups = [
-    '.side-design > *, .split-photo, .side-manage > *, .split-intro > *',
+    '.side-design > *, .split-photo, .side-manage > *, .split-intro > *, .ab-hero-grid > div > *',
     '.page-head .wrap > *',
     '.project-hero .back, .project-hero h1, .project-hero .lead, .facts > div'
   ];
-  var perSection = '.section-head > *, .about-photo, .about-text > *, .timeline > li, .path > li, .card, .tile, .feature, .bg-grid > div, .highlight, .row-head, .skills > div, .band .words > *, .band figure, .contact > div > *, .contact-links .btn, .article > *, .next';
+  var perSection = '.section-head > *, .about-photo, .about-text > *, .timeline > li, .path > li, .card, .tile, .feature, .ab-side, .ab-hl-card, .ab-cv-grid > div, .ab-toolkit > div, .ab-story-grid > *, .ab-cta .wrap > *, .bg-grid > div, .highlight, .row-head, .skills > div, .band .words > *, .band figure, .contact > div > *, .contact-links .btn, .article > *, .next';
 
   var items = [];
   groups.forEach(function (sel) {
