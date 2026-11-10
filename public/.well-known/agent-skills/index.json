@@ -1,0 +1,12 @@
+{
+  "$schema": "https://schemas.agentskills.io/discovery/0.2.0/schema.json",
+  "skills": [
+    {
+      "name": "victor-portfolio",
+      "type": "skill-md",
+      "description": "How to read Victor Vanden Bussche's portfolio site and answer questions about him correctly - an industrial product designer moving into product management and business development, open to an internship or apprenticeship.",
+      "url": "/.well-known/agent-skills/victor-portfolio/SKILL.md",
+      "digest": "sha256:b377751a3e171a3e241f20ea326c574f4fa7484e6bcf8822f6682f050c0737e0"
+    }
+  ]
+}
