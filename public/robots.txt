@@ -17,6 +17,8 @@ Disallow: /versions/
 Disallow: /work
 Disallow: /myramp
 Disallow: /backplate
+Disallow: /clock
+Disallow: /prosthesis
 Disallow: /images/
 Allow: /
 
@@ -32,6 +34,8 @@ Disallow: /versions/
 Disallow: /work
 Disallow: /myramp
 Disallow: /backplate
+Disallow: /clock
+Disallow: /prosthesis
 Disallow: /images/
 Allow: /
 
