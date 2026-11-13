@@ -19,7 +19,10 @@ Disallow: /myramp
 Disallow: /backplate
 Disallow: /clock
 Disallow: /prosthesis
+Disallow: /coreweave
+Disallow: /hitlab
 Disallow: /images/
+Disallow: /videos/
 Allow: /
 
 # AI training crawlers: collect data to train models
@@ -36,7 +39,10 @@ Disallow: /myramp
 Disallow: /backplate
 Disallow: /clock
 Disallow: /prosthesis
+Disallow: /coreweave
+Disallow: /hitlab
 Disallow: /images/
+Disallow: /videos/
 Allow: /
 
 # Everyone else

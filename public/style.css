@@ -1121,3 +1121,20 @@ html:not(.js) .k-side > * { grid-area: auto; }
   .gallery-3 img { height: 420px; }
   .gallery.tall img { height: 460px; }
 }
+
+/* Work page groups, and slides shown whole on project pages */
+.work-group { font-size: clamp(2rem, 1.2rem + 3vw, 3.4rem); margin: 56px 0 4px; }
+.work-group:first-child { margin-top: 0; }
+.photo.slide img { max-height: none; height: auto; object-fit: contain; background: #fff; }
+/* Cards alternate by card, not by heading */
+.work > .feature:nth-child(n) { grid-template-columns: 7fr 5fr; }
+.work > .feature:nth-child(n) .f-media { order: 0; }
+.work > a.feature:nth-of-type(even) { grid-template-columns: 5fr 7fr; }
+.work > a.feature:nth-of-type(even) .f-media { order: 2; }
+@media (max-width: 820px) {
+  .work > .feature:nth-child(n), .work > a.feature:nth-of-type(even) { grid-template-columns: 1fr; }
+  .work > a.feature:nth-of-type(even) .f-media { order: 0; }
+}
+
+/* Campaign video: full width, plays only when asked */
+.photo.video video { display: block; width: 100%; height: auto; background: #000; }

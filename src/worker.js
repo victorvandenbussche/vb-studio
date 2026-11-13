@@ -66,9 +66,9 @@ export default {
 };
 
 // Pages that only people may read (with or without .html or a trailing slash).
-const PEOPLE_ONLY = new Set(["contact", "work", "myramp", "backplate", "clock", "prosthesis"]
+const PEOPLE_ONLY = new Set(["contact", "work", "myramp", "backplate", "clock", "prosthesis", "coreweave", "hitlab"]
   .flatMap((p) => ["/" + p, "/" + p + ".html", "/" + p + "/"]));
-function isPeopleOnly(path) { const p = path.toLowerCase(); return PEOPLE_ONLY.has(p) || p.startsWith("/versions/") || p.startsWith("/images/"); }
+function isPeopleOnly(path) { const p = path.toLowerCase(); return PEOPLE_ONLY.has(p) || p.startsWith("/versions/") || p.startsWith("/images/") || p.startsWith("/videos/"); }
 
 // Removes every element marked data-people-only from an HTML page.
 function stripPeopleOnly(res) {
