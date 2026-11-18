@@ -1161,3 +1161,9 @@ html:not(.js) .k-side > * { grid-area: auto; }
   .k-panel { grid-template-columns: minmax(0, 1fr); }
   .k-panel h3 { font-size: 15vw; }
 }
+/* Phone: the stories take no room until the slider reaches their end */
+@media (max-width: 680px) {
+  .js .k-info { display: none; }
+  .k-hero.is-design .k-side-design .k-info,
+  .k-hero.is-manage .k-side-manage .k-info { display: block; }
+}
