@@ -1138,3 +1138,26 @@ html:not(.js) .k-side > * { grid-area: auto; }
 
 /* Campaign video: full width, plays only when asked */
 .photo.video video { display: block; width: 100%; height: auto; background: #000; }
+
+/* Home panel with a product render: shown whole on the render's own light ground */
+.k-panel-media.k-render { display: flex; align-items: center; justify-content: center; background: #ececec; }
+.k-panel-media.k-render img { width: min(78%, 520px); height: auto; object-fit: contain; }
+.k-panel:hover .k-panel-media.k-render img { transform: scale(1.04); }
+
+/* Home panels: tall renders stand whole, logos sit on their own ground */
+.k-panel-media.k-white { background: #ffffff; }
+.k-panel-media.k-black { background: #0b0b0b; }
+.k-panel-media.k-tall img { width: auto; height: min(86%, 760px); }
+.k-panel-media.k-logo img { width: min(56%, 360px); height: auto; }
+@media (max-width: 680px) {
+  .k-panel-media.k-tall img { height: 88%; }
+  .k-panel-media.k-logo img { width: min(60%, 260px); }
+}
+.k-panel-media.k-logo img[src*="coreweave"] { max-width: 260px; }
+/* Panels: both halves always equal; titles sized to fit their half */
+.k-panel { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+.k-panel h3 { font-size: clamp(3rem, 1rem + 5.4vw, 7rem); overflow-wrap: break-word; }
+@media (max-width: 680px) {
+  .k-panel { grid-template-columns: minmax(0, 1fr); }
+  .k-panel h3 { font-size: 15vw; }
+}
