@@ -1167,3 +1167,9 @@ html:not(.js) .k-side > * { grid-area: auto; }
   .k-hero.is-design .k-side-design .k-info,
   .k-hero.is-manage .k-side-manage .k-info { display: block; }
 }
+
+/* Work cards: same product pictures as the home page */
+.f-media.white { background: #ffffff; }
+.f-media.black { background: #0b0b0b; }
+.f-media.contain.logo img { padding: 0 22%; }
+.f-media.contain.logo img[src*="coreweave"] { padding: 0 calc(50% - 115px); }
